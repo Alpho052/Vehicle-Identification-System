@@ -1,4 +1,3 @@
-// InsuranceRecord.java - src/main/java/com/vehicle/vehicleidentificationsystem/model/InsuranceRecord.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 import java.time.LocalDate;
