@@ -1,4 +1,3 @@
-// QueryDAO.java - src/main/java/com/vehicle/vehicleidentificationsystem/dao/QueryDAO.java
 package com.vehicle.vehicleidentificationsystem.dao;
 
 import com.vehicle.vehicleidentificationsystem.model.CustomerQuery;
