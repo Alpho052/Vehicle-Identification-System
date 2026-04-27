@@ -1,4 +1,3 @@
-// src/main/java/com/vehicle/vehicleidentificationsystem/dao/UserDAO.java
 package com.vehicle.vehicleidentificationsystem.dao;
 
 import com.vehicle.vehicleidentificationsystem.model.User;
