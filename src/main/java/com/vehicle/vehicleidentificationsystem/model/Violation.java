@@ -1,4 +1,3 @@
-// Violation.java - src/main/java/com/vehicle/vehicleidentificationsystem/model/Violation.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 import java.time.LocalDate;
