@@ -1,4 +1,3 @@
-// src/main/java/com/vehicle/vehicleidentificationsystem/model/User.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 public class User {
