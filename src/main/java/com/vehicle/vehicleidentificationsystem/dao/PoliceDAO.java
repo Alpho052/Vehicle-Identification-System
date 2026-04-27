@@ -1,4 +1,3 @@
-// PoliceDAO.java - src/main/java/com/vehicle/vehicleidentificationsystem/dao/PoliceDAO.java
 package com.vehicle.vehicleidentificationsystem.dao;
 
 import com.vehicle.vehicleidentificationsystem.model.PoliceReport;
