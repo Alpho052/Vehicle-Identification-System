@@ -1,4 +1,3 @@
-// PoliceReport.java - src/main/java/com/vehicle/vehicleidentificationsystem/model/PoliceReport.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 import java.time.LocalDateTime;
