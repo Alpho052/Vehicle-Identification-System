@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox alignment="CENTER" spacing="0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vehicle.vehicleidentificationsystem.controller.LoginController"
+      style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #0f0c29, #302b63, #24243e);">
+
+    <VBox alignment="CENTER" spacing="20"
+          style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 30, 0, 0, 15);"
+          prefWidth="400" prefHeight="460">
+        <padding>
+            <Insets top="35" right="40" bottom="35" left="40"/>
+        </padding>
+
+        <!-- Logo/Title Section -->
+        <VBox alignment="CENTER" spacing="8">
+            <Text text="VEHICLE IDENTIFICATION SYSTEM"
+                  style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-fill: linear-gradient(from 0% 0% to 100% 0%, #0f0c29, #302b63);">
+                <font>
+                    <Font name="System Bold" size="18"/>
+                </font>
+            </Text>
+            <Rectangle width="60" height="2" arcWidth="3" arcHeight="3"
+                       style="-fx-fill: linear-gradient(from 0% 0% to 100% 0%, #667eea, #764ba2);"/>
+            <Text text="Secure Access Portal"
+                  style="-fx-font-size: 11px; -fx-fill: #7f8c8d;"/>
+        </VBox>
+
+        <Separator prefWidth="300" style="-fx-opacity: 0.4;"/>
+
+        <!-- Login Form -->
+        <GridPane hgap="12" vgap="12" alignment="CENTER">
+            <padding>
+                <Insets top="5" bottom="5"/>
+            </padding>
+
+            <Label text="Username" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                   style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 12px;"/>
+            <TextField fx:id="usernameField" promptText="Enter your username"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="220" prefHeight="32"
+                       style="-fx-padding: 6 10; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-font-size: 12px;"/>
+
+            <Label text="Password" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                   style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 12px;"/>
+            <PasswordField fx:id="passwordField" promptText="Enter your password"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="220" prefHeight="32"
+                           style="-fx-padding: 6 10; -fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-font-size: 12px;"/>
+
+            <HBox spacing="12" alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <Button fx:id="loginButton" text="SIGN IN" onAction="#handleLogin"
+                        prefWidth="100" prefHeight="34"
+                        style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 12px;">
+                    <effect>
+                        <DropShadow offsetX="2" offsetY="2" blurType="GAUSSIAN" radius="6" color="#764ba2"/>
+                    </effect>
+                </Button>
+                <Button fx:id="clearButton" text="Clear" onAction="#handleClear"
+                        prefWidth="70" prefHeight="34"
+                        style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-size: 12px;"/>
+            </HBox>
+        </GridPane>
+
+        <Label fx:id="statusLabel" style="-fx-text-fill: #e74c3c; -fx-font-size: 11px;" wrapText="true" alignment="CENTER"/>
+
+        <ProgressIndicator fx:id="loginProgress" visible="false" prefWidth="35" prefHeight="35"
+                           style="-fx-progress-color: #667eea;"/>
+
+        <HBox spacing="8" alignment="CENTER">
+            <Label text="System Status:" style="-fx-font-size: 10px; -fx-text-fill: #7f8c8d;"/>
+            <Label text="Online" style="-fx-font-size: 10px; -fx-text-fill: #27ae60;"/>
+            <Rectangle width="6" height="6" arcWidth="3" arcHeight="3" style="-fx-fill: #27ae60;">
+                <effect>
+                    <DropShadow offsetX="0" offsetY="0" radius="4" color="#27ae60"/>
+                </effect>
+            </Rectangle>
+        </HBox>
+    </VBox>
+</VBox>

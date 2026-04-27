@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vehicle.vehicleidentificationsystem.controller.AdminController"
+      style="-fx-background-color: #f5f7fa;">
+
+    <HBox style="-fx-background-color: linear-gradient(to right, #1a237e, #283593); -fx-padding: 15 20 15 20;" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Vehicle Identification System" style="-fx-fill: white; -fx-font-size: 18; -fx-font-weight: bold;">
+            <font><Font name="System Bold" size="18"/></font>
+        </Text>
+        <Rectangle width="2" height="30" style="-fx-fill: rgba(255,255,255,0.3);" arcWidth="1" arcHeight="1"/>
+        <Text text="Admin Dashboard" style="-fx-fill: #aab6fe; -fx-font-size: 14;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox alignment="CENTER_RIGHT" spacing="15">
+            <Label text="Welcome, " style="-fx-text-fill: white; -fx-font-size: 13;"/>
+            <Label fx:id="welcomeLabel" style="-fx-text-fill: #ffd54f; -fx-font-size: 13; -fx-font-weight: bold;"/>
+            <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5; -fx-padding: 5 15 5 15; -fx-cursor: hand;"/>
+        </HBox>
+    </HBox>
+
+    <MenuBar style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+        <Menu text="File">
+            <MenuItem text="Exit" onAction="#handleExit"/>
+        </Menu>
+        <Menu text="User Management">
+            <MenuItem text="Create User" onAction="#handleCreateUser"/>
+            <MenuItem text="Edit User" onAction="#handleEditUser"/>
+            <MenuItem text="Delete User" onAction="#handleDeleteUser"/>
+            <SeparatorMenuItem/>
+            <MenuItem text="Refresh" onAction="#handleRefresh"/>
+        </Menu>
+        <Menu text="Query Management">
+            <MenuItem text="View Customer Queries" onAction="#handleRespondToQuery"/>
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="About"/>
+        </Menu>
+    </MenuBar>
+
+    <HBox spacing="20" style="-fx-padding: 20 20 20 20;" alignment="CENTER">
+        <VBox fx:id="cardTotalUsers" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="TOTAL USERS" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;"/>
+            <Label fx:id="totalUsersLabel" text="0" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #1a237e;"/>
+            <Rectangle width="40" height="2" style="-fx-fill: #1a237e;" arcWidth="2" arcHeight="2"/>
+        </VBox>
+        <VBox fx:id="cardActiveUsers" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="ACTIVE USERS" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;"/>
+            <Label fx:id="activeSessionsLabel" text="0" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+            <Rectangle width="40" height="2" style="-fx-fill: #27ae60;" arcWidth="2" arcHeight="2"/>
+        </VBox>
+        <VBox fx:id="cardTotalVehicles" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);" alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="TOTAL VEHICLES" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d; -fx-font-weight: bold;"/>
+            <Label fx:id="totalVehiclesLabel" text="0" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+            <Rectangle width="40" height="2" style="-fx-fill: #e74c3c;" arcWidth="2" arcHeight="2"/>
+        </VBox>
+    </HBox>
+
+    <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS" style="-fx-padding: 0 20 20 20; -fx-tab-min-height: 40;">
+        <Tab text="User Management" closable="false">
+            <VBox spacing="15" style="-fx-padding: 20;">
+                <HBox spacing="15">
+                    <Button text="Create New User" onAction="#handleCreateUser" style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;">
+                        <effect><DropShadow offsetX="2" offsetY="2" radius="5" color="#1a237e"/></effect>
+                    </Button>
+                    <Button text="Edit Selected" onAction="#handleEditUser" style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Delete Selected" onAction="#handleDeleteUser" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Refresh" onAction="#handleRefresh" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+                <TableView fx:id="usersTable" prefHeight="400" style="-fx-background-radius: 8;"/>
+            </VBox>
+        </Tab>
+        <Tab text="Vehicle Management" closable="false">
+            <VBox spacing="15" style="-fx-padding: 20;">
+                <Label text="All Registered Vehicles" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                <TableView fx:id="vehiclesTable" prefHeight="400" style="-fx-background-radius: 8;"/>
+            </VBox>
+        </Tab>
+        <Tab text="Customer Queries" closable="false">
+            <VBox spacing="15" style="-fx-padding: 20;">
+                <Label text="Customer Support Requests" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                <Label text="Double-click any query to respond" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+                <TableView fx:id="queriesTable" prefHeight="400" style="-fx-background-radius: 8;"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+    <HBox spacing="20" alignment="CENTER" style="-fx-padding: 15 20 15 20; -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1 0 0 0;">
+        <ProgressBar fx:id="systemProgress" progress="0.75" prefWidth="300" style="-fx-accent: #1a237e; -fx-background-radius: 10;"/>
+        <ProgressIndicator fx:id="systemIndicator" progress="0.75" style="-fx-progress-color: #1a237e;"/>
+        <Label text="System Performance: 75%" style="-fx-text-fill: #1a237e; -fx-font-weight: bold;"/>
+    </HBox>
+</VBox>

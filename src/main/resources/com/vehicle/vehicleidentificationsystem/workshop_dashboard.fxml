@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.vehicle.vehicleidentificationsystem.controller.WorkshopController"
+      style="-fx-background-color: #f5f7fa;">
+
+    <!-- Header -->
+    <HBox style="-fx-background-color: linear-gradient(to right, #1b5e20, #2e7d32); -fx-padding: 15 20 15 20;" alignment="CENTER_LEFT" spacing="15">
+        <Text text="Vehicle Identification System" style="-fx-fill: white; -fx-font-size: 18; -fx-font-weight: bold;">
+            <font><Font name="System Bold" size="18"/></font>
+        </Text>
+        <Rectangle width="2" height="30" style="-fx-fill: rgba(255,255,255,0.3);" arcWidth="1" arcHeight="1"/>
+        <Text text="Workshop Portal" style="-fx-fill: #a5d6a7; -fx-font-size: 14;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox alignment="CENTER_RIGHT" spacing="15">
+            <Label text="Welcome, " style="-fx-text-fill: white; -fx-font-size: 13;"/>
+            <Label fx:id="welcomeLabel" style="-fx-text-fill: #ffd54f; -fx-font-size: 13; -fx-font-weight: bold;"/>
+            <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5; -fx-padding: 5 15 5 15; -fx-cursor: hand;"/>
+        </HBox>
+    </HBox>
+
+    <!-- Menu Bar -->
+    <MenuBar style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+        <Menu text="File">
+            <MenuItem text="Exit" onAction="#handleExit"/>
+        </Menu>
+        <Menu text="Workshop">
+            <MenuItem text="Add Service" onAction="#handleAddService"/>
+            <MenuItem text="Edit Service" onAction="#handleEditService"/>
+            <MenuItem text="Delete Service" onAction="#handleDeleteService"/>
+            <MenuItem text="View History" onAction="#handleViewVehicleHistory"/>
+            <MenuItem text="Refresh" onAction="#handleRefresh"/>
+        </Menu>
+        <Menu text="Help">
+            <MenuItem text="About"/>
+        </Menu>
+    </MenuBar>
+
+    <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+        <VBox spacing="20" style="-fx-padding: 20;">
+
+            <!-- Add Service Form -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                <Text text="Service Management" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-fill: #2e7d32;">
+                    <effect><DropShadow offsetX="1" offsetY="1" radius="3" color="#2e7d3230"/></effect>
+                </Text>
+
+                <GridPane hgap="15" vgap="12">
+                    <Label text="Vehicle:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="vehicleCombo" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="300" promptText="Select a vehicle"/>
+
+                    <Label text="Service Date:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <DatePicker fx:id="serviceDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+
+                    <Label text="Service Type:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="serviceTypeField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250" promptText="e.g., Oil Change, Tire Rotation"/>
+
+                    <Label text="Description:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextArea fx:id="descriptionArea" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="400" prefHeight="80" promptText="Detailed description of service performed"/>
+
+                    <Label text="Cost (M):" style="-fx-font-weight: bold;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="costField" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="150" promptText="0.00"/>
+
+                    <Label text="Odometer (km):" style="-fx-font-weight: bold;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="odometerField" GridPane.rowIndex="5" GridPane.columnIndex="1" prefWidth="150" promptText="Current mileage"/>
+
+                    <Button text="Add Service Record" onAction="#handleAddService" GridPane.rowIndex="6" GridPane.columnIndex="1" style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand; -fx-font-weight: bold;">
+                        <effect><DropShadow offsetX="2" offsetY="2" radius="5" color="#2e7d32"/></effect>
+                    </Button>
+                </GridPane>
+            </VBox>
+
+            <!-- Service History Table -->
+            <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+                <Text text="Service History" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-fill: #2e7d32;"/>
+                <Text text="Double-click a record to edit" style="-fx-font-size: 12; -fx-text-fill: #7f8c8d;"/>
+
+                <TableView fx:id="servicesTable" prefHeight="350" style="-fx-background-radius: 8;"/>
+
+                <HBox spacing="10">
+                    <Button text="Edit Selected" onAction="#handleEditService" style="-fx-background-color: #ff9800; -fx-text-fill: white; -fx-padding: 8 20 8 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Delete Selected" onAction="#handleDeleteService" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 20 8 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="View Vehicle History" onAction="#handleViewVehicleHistory" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 20 8 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    <Button text="Refresh" onAction="#handleRefresh" style="-fx-background-color: #607d8b; -fx-text-fill: white; -fx-padding: 8 20 8 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+
+                <Label fx:id="statusLabel" style="-fx-text-fill: #27ae60; -fx-padding: 5;"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</VBox>
