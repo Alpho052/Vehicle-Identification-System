@@ -1,4 +1,3 @@
-// src/main/java/com/vehicle/vehicleidentificationsystem/dao/DatabaseConnection.java
 package com.vehicle.vehicleidentificationsystem.dao;
 
 import java.sql.Connection;
@@ -9,10 +8,10 @@ public class DatabaseConnection {
     private static DatabaseConnection instance;
     private Connection connection;
 
-    // Update these with your actual PostgreSQL credentials
+    
     private static final String URL = "jdbc:postgresql://localhost:5432/vehicle_identification_system";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "Ntebo@16"; // Change this to your actual password
+    private static final String PASSWORD = "Ntebo@16"; 
 
     private DatabaseConnection() {
         try {
