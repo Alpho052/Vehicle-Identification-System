@@ -32,7 +32,7 @@ public class LoginController {
     @FXML private VBox loginCard;
     @FXML private VBox usernameFieldContainer;
     @FXML private VBox passwordFieldContainer;
-    @FXML private HBox buttonContainer;  // Changed from VBox to HBox
+    @FXML private HBox buttonContainer;  
 
     private DatabaseConnection dbConnection;
 
