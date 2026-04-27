@@ -1,4 +1,3 @@
-// Base Entity Class - src/main/java/com/vehicle/vehicleidentificationsystem/model/BaseEntity.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 import java.time.LocalDateTime;
