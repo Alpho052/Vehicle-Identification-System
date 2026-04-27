@@ -1,4 +1,3 @@
-// CustomerQuery.java - src/main/java/com/vehicle/vehicleidentificationsystem/model/CustomerQuery.java
 package com.vehicle.vehicleidentificationsystem.model;
 
 import java.time.LocalDateTime;
