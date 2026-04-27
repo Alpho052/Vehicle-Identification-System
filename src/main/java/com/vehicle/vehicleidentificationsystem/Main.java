@@ -1,4 +1,3 @@
-// src/main/java/com/vehicle/vehicleidentificationsystem/Main.java
 package com.vehicle.vehicleidentificationsystem;
 
 import com.vehicle.vehicleidentificationsystem.dao.DatabaseConnection;
